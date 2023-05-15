@@ -106,7 +106,6 @@ class ClientHttp
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "X-Requested-With: XMLHttpRequest",
-            "Content-Type: application/json"
         ]);
         $response = curl_exec($ch);
         curl_close($ch);
@@ -118,11 +117,11 @@ class ClientHttp
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "X-Requested-With: XMLHttpRequest",
-            "Content-Type: application/json"
+            "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
         curl_close($ch);
@@ -134,11 +133,11 @@ class ClientHttp
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "X-Requested-With: XMLHttpRequest",
-            "Content-Type: application/json"
+            "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
         curl_close($ch);
@@ -146,14 +145,15 @@ class ClientHttp
         return $response;
     }
 
-    public function ajaxDelete($url)
+    public function ajaxDelete($url, $data)
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "X-Requested-With: XMLHttpRequest",
-            "Content-Type: application/json"
+            "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
         curl_close($ch);
