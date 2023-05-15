@@ -2,7 +2,7 @@
     "name": "gussware/client-http",
     "description": "Librería basica para realizar peticiones http mediente curl",
     "type": "library",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
