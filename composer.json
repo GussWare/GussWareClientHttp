@@ -3,6 +3,7 @@
     "description": "Librería basica para realizar peticiones http mediente curl",
     "type": "library",
     "version": "0.1.0",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Gussware\\ClientHttp\\": "src/"
