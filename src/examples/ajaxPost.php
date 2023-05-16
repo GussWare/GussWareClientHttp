@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use GussWare\ClientHttp;
+use Gussware\Clienthttp;
 
 class AjaxPost
 {

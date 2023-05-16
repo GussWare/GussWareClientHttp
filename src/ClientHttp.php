@@ -1,6 +1,6 @@
 <?php
 
-namespace GussWare;
+namespace Gussware;
 
 class ClientHttp
 {
