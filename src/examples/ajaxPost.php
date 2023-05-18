@@ -28,4 +28,4 @@ $response = $client->call([
     "message" => "Hola que hace"
 ]);
 
-echo json_encode($response);
+var_dump($response);

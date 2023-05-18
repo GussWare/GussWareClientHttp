@@ -18,7 +18,7 @@ class ClientHttp
 
         return [
             'status' => $status,
-            'data' => $response
+            'data' => json_decode($response)
         ];
     }
 
@@ -108,6 +108,7 @@ class ClientHttp
             "X-Requested-With: XMLHttpRequest",
         ]);
         $response = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
         return $response;
@@ -124,9 +125,13 @@ class ClientHttp
             "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        return $response;
+        return [
+            'status' => $status,
+            'data' => $response
+        ];
     }
 
     public function ajaxPut($url, $data)
@@ -140,9 +145,13 @@ class ClientHttp
             "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        return $response;
+        return [
+            'status' => $status,
+            'data' => $response
+        ];
     }
 
     public function ajaxDelete($url, $data)
@@ -156,8 +165,12 @@ class ClientHttp
             "Content-Type: application/x-www-form-urlencoded"
         ]);
         $response = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        return $response;
+        return [
+            'status' => $status,
+            'data' => $response
+        ];
     }
 }
