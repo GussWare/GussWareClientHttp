@@ -18,7 +18,7 @@ class ClientHttp
 
         return [
             'status' => $status,
-            'data' => json_decode($response)
+            'data' => $response
         ];
     }
 
@@ -111,7 +111,10 @@ class ClientHttp
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        return $response;
+        return [
+            'status' => $status,
+            'data' => $response
+        ];
     }
 
     public function ajaxPost($url, $data)
